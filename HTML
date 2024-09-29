@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+    <title>Music Player | OnlineITtuts Tutorials</title>
+  </head>
+  <body>
+    <div class="background">
+      <img src="background music 2.jpg" id="bg_img" />
+    </div>
+<div class="container">
+      <!--===============Player Image================= -->
+      <div class="player_img">
+        <img src="media/ante sundaraniki.jpg" id="cover" class="active" />
+      </div>
+      <!--============Player Content -->
+      <h4 id="music_title">entha chithram</h4>
+      <h5 id="musric_artist">Anurag Kulkarni, Keerthana Vaidyanathan; </h5>
+
+  
+      <!--==============Player Progress & Timmer -->
+      <div class="player_progress" id="player_progress">
+        <div class="progress" id="progress">
+          <div class="music_duration">
+            <span id="current_time">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+      </div>
+      <!--==============Player Controllers -->
+      <div class="player_controls">
+        <i class="fa-solid fa-shuffle"></i>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-backward" title="Previous" id="prev"></i>
+        <i class="fa-solid fa-play" title="Play" id="play"></i>
+        <i class="fa-solid fa-forward" title="Next" id="next"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+        <i class="fa-solid fa-repeat"></i>
+      </div>
+    </div>
+  </body>
+</html>
