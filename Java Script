@@ -1,0 +1,128 @@
+"use strict";
+const imgEl = document.getElementById("bg_img");
+const imgCoverEl = document.getElementById("cover");
+const musicTitleEl = document.getElementById("music_title");
+const musicArtistEl = document.getElementById("musric_artist");
+const playerProgressEl = document.getElementById("player_progress");
+const progressEl = document.getElementById("progress");
+const currentTimeEl = document.getElementById("current_time");
+const durationEl = document.getElementById("duration");
+const prevBtnEl = document.getElementById("prev");
+const playvBtnEl = document.getElementById("play");
+const nextvBtnEl = document.getElementById("next");
+const shuffleBtnEl = document.getElementById("shuff");
+const repeatBtnEl = document.getElementById("rep");
+const heartBtnEl = document.getElementById("heart");
+const shareBtnEl = document.getElementById("shar");
+
+const songs = [
+  {
+    path: "media/Entha Chithram.mp3",
+    displayName: "entha chithram",
+    cover: "media/ante sundaraniki.jpg",
+    artist: "Anurag Kulkarni, Keerthana Vaidyanathan;",
+  },
+  {
+      path: "media/Ga Gha Megha - SenSongsMp3.Co.mp3",
+      displayName: "Gha Gha mega",
+      cover: "media/Chal-Mohan-Ranga.jpg",
+      artist: "Thaman S. & Rahul Nambiar;",
+    },
+    {
+      path: "media/128-Chogada - Loveyatri - A Journey Of Love 128 Kbps.mp3",
+      displayName: "Chogada",
+      cover: "media/CHOGADA.jpg",
+      artist: "Darshan Raval, Asees Kaur; ",
+    },
+    {
+      path: "media/Closer-(PagalSongs.Com.IN).mp3",
+      displayName: "closer",
+      cover: "media/maxresdefault.jpg",
+      artist: "venky mouli arivand"  },
+      {
+      path: "media/Love-Me-Like-You-Do(PaglaSongs).mp3",
+      displayName: "love me like you do",
+      cover: "media/love me like you do.jpg",
+      artist: "venky,pavan kumar,konda reddy"  },
+];
+
+const music = new Audio();
+let musicIndex = 0;
+let isPlaying = false;
+//================== Play Song  True or False====================
+function togglePlay() {
+  if (isPlaying) {
+    pauseMusic();
+  } else {
+    playMusic();
+  }
+}
+//================== Play Music====================
+function playMusic() {
+  isPlaying = true;
+  playvBtnEl.classList.replace("fa-play", "fa-pause");
+  playvBtnEl.setAttribute("title", "pause");
+  music.play();
+}
+//================== Pause Music====================
+function pauseMusic() {
+  isPlaying = false;
+  playvBtnEl.classList.replace("fa-pause", "fa-play");
+  playvBtnEl.setAttribute("pause", "title");
+  music.pause();
+}
+//================== Load Songs ====================
+function loadMusic(songs) {
+  music.src = songs.path;
+  musicTitleEl.textContent = songs.displayName;
+  musicArtistEl.textContent = songs.artist;
+  imgCoverEl.src = songs.cover;
+  imgEl.src = songs.cover;
+}
+//================== Change Music ====================
+function changeMusic(direction) {
+  musicIndex = musicIndex + direction + (songs.length % songs.length);
+  loadMusic(songs[musicIndex]);
+  playMusic();
+}
+//================== Set Progress ====================
+function setProgressBar(e) {
+  const width = playerProgressEl.clientWidth;
+  const xValue = e.offsetX;
+  music.currentTime = (xValue / width) * music.duration;
+}
+//================== Set Progress ====================
+function updateProgressBar() {
+  const { duration, currentTime } = music;
+  const ProgressPercent = (currentTime / duration) * 100;
+  progressEl.style.width = `${ProgressPercent}%`;
+  const formattime = (timeRanges) =>
+    String(Math.floor(timeRanges)).padStart(2, "0");
+  durationEl.textContent = `${formattime(duration / 60)} : ${formattime(
+    duration % 60,
+  )}`;
+  currentTimeEl.textContent = `${formattime(currentTime / 60)} : ${formattime(
+    currentTime % 60,
+  )}`;
+}
+//================= Btn Events========================
+const btnEvents = () => {
+  playvBtnEl.addEventListener("click", togglePlay);
+  nextvBtnEl.addEventListener("click", () => changeMusic(1));
+  prevBtnEl.addEventListener("click", () => changeMusic(-1));
+  //========= Progressbar===========================
+  music.addEventListener("ended", () => changeMusic(1));
+  music.addEventListener("timeupdate", updateProgressBar);
+  playerProgressEl.addEventListener("click", setProgressBar);
+};
+//================= Btn Events========================
+document.addEventListener("DOMContentLoaded", btnEvents);
+
+// Event listener for auto-playing the next song
+music.addEventListener("ended", () => {
+    if (!isRepeat) {
+      changeMusic(1); // Play next song when current song ends, unless in repeat mode
+    }
+  });
+//============ Calling Load Music
+loadMusic(songs[musicIndex]);
