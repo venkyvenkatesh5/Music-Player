@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "poppins", sans-serif;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  transform: scale(1.1);
+}
+.container {
+  background-color: #fff;
+  width: 400px;
+  height: 550px;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+.player_img {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top: -50px;
+  left: 50px;
+}
+.player_img img {
+  object-fit: cover;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+.player_img img.active {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+h4 {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+h5 {
+  font-size: 1rem;
+  text-align: center;
+  color: #c6bfbf;
+}
+.player_progress {
+  background-color: #c6bfbf;
+  border-radius: 5px;
+  height: 6px;
+  width: 90%;
+  margin: 40px 20px 35px;
+  position: relative;
+  cursor: pointer;
+}
+#progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #f53192;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0;
+}
+
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 8px solid #f53192;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Adjusted box shadow */
+  cursor: pointer;
+}
+
+#progress:hover::-webkit-slider-thumb {
+  background: #f53192; /* Change thumb color on hover */
+}
+
+#progress:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px #f53192, 0 0 0 4px rgba(245, 49, 146, 0.5); /* Focus style */
+}
+.music_duration {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -25px;
+}
+.player_controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-solid.fa-shuffle, 
+.fa-solid.fa-repeat {
+  margin-right: 30px; /* Adjust as needed */
+}
+
+.fa-solid {
+  font-size: 20px;
+  color:  #f53192;
+  cursor: pointer;
+  margin-right: 30px;
+  user-select: none;
+  transition: all 0.3s ease-in;
+
+}
+.fa-solid:hover {
+  filter: brightness(40%);
+}
+.play-button {
+  font-size: 44px;
+}
