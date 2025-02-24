@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="musicplayer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <script defer src="musicplayer.js"></script><!-- Script for music player functionality -->
+    <title>Music Player</title>
+  </head>
+  <body>
+    <div class="background">
+      <img src="background music 2.jpg" id="bg_img" /><!-- Background image for the player -->
+    </div>
+<div class="container">
+      <!--===============Player Image================= -->
+      <div class="player_img">
+        <img src="media/image-1.jpg" id="cover" class="active" /><!-- Cover image of the currently playing song -->
+      </div>
+      <!--============Player Content -->
+      <h4 id="music_title">BGM &#128158;Of Premalu</h4><!-- Title of the currently playing song -->
+      <h5 id="musric_artist">Vishnu Vijay | Shakthisree Gopalan | Kapil Kapilan</h5><!-- Artist(s) of the currently playing song -->
+
+  
+      <!--==============Player Progress & Timmer -->
+      <div class="player_progress" id="player_progress">
+        <div class="progress" id="progress">
+          <div class="music_duration">
+            <span id="current_time">0:00</span><!-- Current playback time of the song -->
+            <span id="duration">0:00</span><!-- Total duration of the song -->
+          </div>
+        </div>
+      </div>
+      <!--==============Player Controllers -->
+      <div class="player_controls">
+        <i class="fa-solid fa-shuffle" title="shuffle" id="shuff"></i><!-- Shuffle button -->
+        <i class="fa-solid fa-heart" title="like" id="heart"></i><!-- Like (heart) button -->
+        <i class="fa-solid fa-backward" title="Previous" id="prev"></i><!-- Previous track button -->
+        <i class="fa-solid fa-play" title="Play" id="play"></i><!-- Play/Pause button -->
+        <i class="fa-solid fa-forward" title="Next" id="next"></i><!-- Next track button -->
+        <i class="fa-solid fa-share-nodes"title="share" id="shar"></i><!-- Share button -->
+        <i class="fa-solid fa-repeat" title="repeat" id="rep"></i> <!-- Repeat button -->
+    </div>
+      </div>
+    </div>
+  </body>
+</html>
