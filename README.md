@@ -1,7 +1,6 @@
 🎵 Music Player Application
 
 
-
 📌 Overview
 The Music Player Application is a web-based media player that allows users to play, pause, shuffle, and manage their favorite music tracks. It supports track listing stored in a SQL database, providing a dynamic and personalized experience.
 
@@ -18,9 +17,7 @@ Frontend: HTML, CSS, JavaScript
 Backend: JavaScript (Node.js or PHP)
 Database: MySQL / SQLite
 📂 Project Structure
-bash
-Copy
-Edit
+
 /music-player-app  
 │── index.html           # Main HTML structure  
 │── styles.css           # CSS for UI styling  
@@ -33,10 +30,8 @@ Edit
 🎮 How to Use
 1️⃣ Clone this repository
 
-sh
-Copy
-Edit
-git clone https://github.com/your-repo/music-player-app.git
+
+git clone https://github.com/venkyvenkatesh5/Music-Player
 2️⃣ Set up the database using database.sql
 3️⃣ Open index.html in a browser
 4️⃣ Enjoy your music! 🎶
